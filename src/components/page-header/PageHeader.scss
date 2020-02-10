@@ -1,12 +1,19 @@
 @import '../../variables.scss';  
 
-.my-page-header {  
+.page-header {  
     margin: 0;  
     background: $primary;  
     height: $page-header-height;  
     width: 100%;  
     display: flex;  
     align-items: center;  
+
+    .search {
+        position: absolute;
+        top: 30px;
+        right: 16px;
+        font-size: 18px;
+    }
 
     .title {  
         margin: 0;  

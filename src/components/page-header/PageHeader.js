@@ -1,11 +1,16 @@
 import * as React from 'react'; 
+import Search from '../search/Search';
 
 export default class MyPageHeader extends React.Component { 
 
     render() { 
         return ( 
-            <div className='my-page-header'> 
+            <div className='page-header'> 
                 <h1 className='title'>React Sample App</h1> 
+                <div className="search">
+                    <Search searchWeather={this.props.searchWeather}/>
+                </div>
+                
             </div> 
         ) 
     } 
