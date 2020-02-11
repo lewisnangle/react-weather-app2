@@ -11,7 +11,9 @@
         display: flex;  
         align-items: center;  
         padding-left: 15px;  
-        border-left: 5px solid $primary;  
+        border-left: 5px solid $primary; 
+        border-color: $secondary;
+
 
         .navigation-text {  
             color: #ffffff;  
@@ -19,6 +21,7 @@
 
         &.selected {  
             border-left: 5px solid #ffffff;  
+            
         }  
     }  
 }  

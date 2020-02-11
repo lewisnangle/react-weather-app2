@@ -1,4 +1,5 @@
 import * as React from 'react';  
+import './App.scss';
 import PageHeader from '../page-header/PageHeader';  
 import Navbar from '../navbar/NavBar';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'; 
@@ -33,7 +34,7 @@ class App extends React.Component {
 
     render() {  
         return (  
-            <div>  
+            <div className='body'>  
                 
                 <PageHeader searchWeather={this.searchWeather}/>
                 <Router> 

@@ -1,7 +1,6 @@
 import React from 'react';
 
 
-
 class weatherList extends React.Component {
 
 
@@ -23,7 +22,7 @@ class weatherList extends React.Component {
             {
             weatherList.map((item,index)=>{
                 return(
-                    <table key={item.id} className="ui striped table page-content">
+                    <table key={item.id} className="ui celled collapsing very basic table page-content">
                         {(index === 0) ? <thead>
                             <tr>
                             <th>Weather</th>
