@@ -24,8 +24,9 @@ class App extends React.Component {
                 var wind_direction_compass = json.consolidated_weather[i].wind_direction_compass;
                 var the_temp = json.consolidated_weather[i].the_temp;
                 var wind_speed = json.consolidated_weather[i].wind_speed;
+                var weather_state_abbr = json.consolidated_weather[i].weather_state_abbr;
                 sources = json.sources;
-                var weatherItem = {id,weather_state_name,wind_direction_compass,the_temp,wind_speed,weatherItem}
+                var weatherItem = {id,weather_state_name,wind_direction_compass,the_temp,wind_speed,weather_state_abbr}
                 weatherList.push(weatherItem)
             }
             this.setState({weatherList,sources})

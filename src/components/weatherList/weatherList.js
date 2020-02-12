@@ -1,5 +1,5 @@
 import React from 'react';
-import { Table } from 'semantic-ui-react'
+import { Table,Image } from 'semantic-ui-react'
 
 
 class weatherList extends React.Component {
@@ -19,6 +19,7 @@ class weatherList extends React.Component {
         const TableRows = (weatherList,sources) => weatherList.map((item,index) => (
             <Table.Body>
                 <Table.Row>
+                    <Table.Cell><Image src={'https://www.metaweather.com//static/img/weather/' +item.weather_state_abbr +'.svg'} rounded size='mini' /></Table.Cell>
                     <Table.Cell>{sources[index].title}</Table.Cell>
                     <Table.Cell>{item.weather_state_name}</Table.Cell>
                     <Table.Cell>{item.wind_direction_compass}</Table.Cell>
@@ -31,6 +32,7 @@ class weatherList extends React.Component {
         const TableHeader = () => (
               <Table.Header>
                 <Table.Row>
+                  <Table.HeaderCell></Table.HeaderCell>
                   <Table.HeaderCell>Source</Table.HeaderCell>
                   <Table.HeaderCell>Weather</Table.HeaderCell>
                   <Table.HeaderCell>Wind Direction</Table.HeaderCell>
