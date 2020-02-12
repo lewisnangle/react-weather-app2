@@ -19,24 +19,23 @@ class weatherList extends React.Component {
         const TableRows = (weatherList,sources) => weatherList.map((item,index) => (
             <Table.Body>
                 <Table.Row>
+                    <Table.Cell>{sources[index].title}</Table.Cell>
                     <Table.Cell>{item.weather_state_name}</Table.Cell>
                     <Table.Cell>{item.wind_direction_compass}</Table.Cell>
                     <Table.Cell>{item.the_temp}</Table.Cell>
                     <Table.Cell>{item.wind_speed}</Table.Cell>
-                    <Table.Cell>{sources[index].title}</Table.Cell>
                 </Table.Row>
             </Table.Body>
         ))
 
         const TableHeader = (weatherList,sources) => (
-
               <Table.Header>
                 <Table.Row>
+                  <Table.HeaderCell>Source</Table.HeaderCell>
                   <Table.HeaderCell>Weather</Table.HeaderCell>
                   <Table.HeaderCell>Wind Direction</Table.HeaderCell>
                   <Table.HeaderCell>Temperature</Table.HeaderCell>
                   <Table.HeaderCell>Wind Speed</Table.HeaderCell>
-                  <Table.HeaderCell>Source</Table.HeaderCell>
                 </Table.Row>
               </Table.Header>
           )
