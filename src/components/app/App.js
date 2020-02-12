@@ -50,7 +50,7 @@ class App extends React.Component {
                         <div className='page-content'>Page 4</div>  
                     </Route>  
                     <Route path="/">  
-                        <WeatherList searchWeather={this.searchWeather} weatherList = {this.state.weatherList} source = {this.state.sources}/>   
+                        <WeatherList searchWeather={this.searchWeather} weatherList = {this.state.weatherList} sources = {this.state.sources}/>   
                     </Route>  
                 </Switch>  
             </Router> 

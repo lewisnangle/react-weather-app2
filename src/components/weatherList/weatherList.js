@@ -1,4 +1,5 @@
 import React from 'react';
+import { Table } from 'semantic-ui-react'
 
 
 class weatherList extends React.Component {
@@ -13,40 +14,40 @@ class weatherList extends React.Component {
         }
 
         const weatherList = this.props.weatherList;
+        const sources = this.props.sources;
 
-        console.log("Weather List:" + weatherList);
+        const TableRows = (weatherList,sources) => weatherList.map((item,index) => (
+            <Table.Body>
+                <Table.Row>
+                    <Table.Cell>{item.weather_state_name}</Table.Cell>
+                    <Table.Cell>{item.wind_direction_compass}</Table.Cell>
+                    <Table.Cell>{item.the_temp}</Table.Cell>
+                    <Table.Cell>{item.wind_speed}</Table.Cell>
+                    <Table.Cell>{sources[index].title}</Table.Cell>
+                </Table.Row>
+            </Table.Body>
+        ))
+
+        const TableHeader = (weatherList,sources) => (
+
+              <Table.Header>
+                <Table.Row>
+                  <Table.HeaderCell>Weather</Table.HeaderCell>
+                  <Table.HeaderCell>Wind Direction</Table.HeaderCell>
+                  <Table.HeaderCell>Temperature</Table.HeaderCell>
+                  <Table.HeaderCell>Wind Speed</Table.HeaderCell>
+                  <Table.HeaderCell>Source</Table.HeaderCell>
+                </Table.Row>
+              </Table.Header>
+          )
 
 
         return(
-            <div>
-            {
-            weatherList.map((item,index)=>{
-                return(
-                    <table key={item.id} className="ui celled collapsing very basic table page-content">
-                        {(index === 0) ? <thead>
-                            <tr>
-                            <th>Weather</th>
-                            <th>Wind direction</th>
-                            <th>Temperature</th>
-                            <th>Wind Speed</th>
-
-                            </tr>
-                        </thead> : ''  }                        
-                        {
-                        <tbody>
-                            <tr>
-                            <td>{item.weather_state_name}</td>
-                            <td>{item.wind_direction_compass}</td>
-                            <td>{item.the_temp}</td>
-                            <td>{item.wind_speed}</td>
-
-                            </tr>
-                        </tbody>
-                        }
-                        </table>
-                );
-            })
-            }
+            <div className = 'page-content'>
+                <Table>
+                {TableHeader(weatherList,sources)}
+                {TableRows(weatherList,sources)}
+                </Table>
             </div>
         );
     }
