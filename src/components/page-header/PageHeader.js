@@ -8,7 +8,7 @@ export default class MyPageHeader extends React.Component {
             <div className='page-header'> 
                 <h1 className='title'>Weather App</h1> 
                 <div className="search">
-                    <Search searchWeather={this.props.searchWeather}/>
+                    <Search searchWeatherWeek={this.props.searchWeatherWeek} searchWeather={this.props.searchWeather}/>
                 </div>
                 
             </div> 

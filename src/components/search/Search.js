@@ -18,6 +18,7 @@ class Search extends React.Component {
 
     searchWeather = () => {
         this.props.searchWeather(this.state.weatherQuery);
+        this.props.searchWeatherWeek(this.state.weatherQuery);
     }
 
 
