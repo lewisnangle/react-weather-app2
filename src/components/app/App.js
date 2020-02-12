@@ -4,6 +4,7 @@ import PageHeader from '../page-header/PageHeader';
 import Navbar from '../navbar/NavBar';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'; 
 import WeatherList from '../weatherList/weatherList';
+import Calender from '../calender/Calender';
 
 class App extends React.Component {  
 
@@ -42,16 +43,16 @@ class App extends React.Component {
                 <Navbar/>
                 <Switch>  
                     <Route path="/page2">  
-                        <div className='page-content'>Page 2</div>  
+                        Page 2
                     </Route>  
                     <Route path="/page3">  
                         <div className='page-content'>Page 3</div>  
                     </Route>  
                     <Route path="/page4">  
-                        <div className='page-content'>Page 4</div>  
+                        <Calender/>
                     </Route>  
                     <Route path="/">  
-                        <WeatherList searchWeather={this.searchWeather} weatherList = {this.state.weatherList} sources = {this.state.sources}/>   
+                        <WeatherList searchWeather={this.searchWeather} weatherList = {this.state.weatherList} sources = {this.state.sources}/> 
                     </Route>  
                 </Switch>  
             </Router> 
