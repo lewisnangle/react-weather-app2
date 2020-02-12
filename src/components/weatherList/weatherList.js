@@ -28,7 +28,7 @@ class weatherList extends React.Component {
             </Table.Body>
         ))
 
-        const TableHeader = (weatherList,sources) => (
+        const TableHeader = () => (
               <Table.Header>
                 <Table.Row>
                   <Table.HeaderCell>Source</Table.HeaderCell>
