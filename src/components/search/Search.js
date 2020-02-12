@@ -1,5 +1,5 @@
 import React from 'react';
-
+import { Form } from 'semantic-ui-react'
 
 class Search extends React.Component {
 
@@ -20,15 +20,24 @@ class Search extends React.Component {
         this.props.searchWeather(this.state.weatherQuery);
     }
 
+
     render(){
-        return(
-            <div>
-                <input onChange={this.updateWeatherQuery} 
+
+        const SearchForm = () => (
+            <Form>
+              <Form.Field>
+              <input onChange={this.updateWeatherQuery} 
                     onKeyPress={this.handleKeyPress}
                     placeholder = 'Enter your location'
                  />
-        
-                <button variant="outline-dark" onClick ={this.searchWeather}>Search</button>
+              </Form.Field>
+            </Form>
+          )
+
+
+        return(
+            <div>
+                {SearchForm()}
             </div>
         );
     }
