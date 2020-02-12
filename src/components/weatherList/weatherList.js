@@ -22,8 +22,8 @@ class weatherList extends React.Component {
                     <Table.Cell>{sources[index].title}</Table.Cell>
                     <Table.Cell>{item.weather_state_name}</Table.Cell>
                     <Table.Cell>{item.wind_direction_compass}</Table.Cell>
-                    <Table.Cell>{item.the_temp}</Table.Cell>
-                    <Table.Cell>{item.wind_speed}</Table.Cell>
+                    <Table.Cell>{Math.round(item.the_temp)}</Table.Cell>
+                    <Table.Cell>{Math.round(item.wind_speed)}</Table.Cell>
                 </Table.Row>
             </Table.Body>
         ))
