@@ -16,6 +16,7 @@ class App extends React.Component {
         .then(response => 
             response.json())
         .then((myJson) => {
+            console.log("JSON in weatherSearch: " + myJson.content)
             var json = JSON.parse(myJson.content);
             console.log("consolidated Weather" + json.consolidated_weather);
             var weatherList = []
@@ -40,8 +41,9 @@ class App extends React.Component {
         .then(response => 
             response.json())
         .then((myJson) => {
+            console.log(myJson)
             var json = JSON.parse(myJson.content);
-            console.log("consolidated Weather" + json.consolidated_weather);
+            console.log("consolidated Weather" + JSON.stringify(json.consolidated_weather));
             var weatherListWeek = []
             var sourcesWeek = [];
             for(var i = 0; i < json.consolidated_weather.length;i++){
@@ -52,7 +54,8 @@ class App extends React.Component {
                 var wind_speed = json.consolidated_weather[i].wind_speed;
                 var weather_state_abbr = json.consolidated_weather[i].weather_state_abbr;
                 sourcesWeek = json.sources;
-                var weatherItem = {id,weather_state_name,wind_direction_compass,the_temp,wind_speed,weather_state_abbr}
+                var dayOfWeek = json.consolidated_weather[i].dayOfWeek;
+                var weatherItem = {id,weather_state_name,wind_direction_compass,the_temp,wind_speed,weather_state_abbr,dayOfWeek}
                 weatherListWeek.push(weatherItem)
             }
             this.setState({weatherListWeek,sourcesWeek})
