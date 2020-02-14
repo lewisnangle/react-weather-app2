@@ -1,5 +1,5 @@
 import React from 'react';
-import { Table,Image } from 'semantic-ui-react'
+import {Table,Image,Card, Icon} from 'semantic-ui-react'
 
 
 class weatherList extends React.Component {
@@ -16,39 +16,36 @@ class weatherList extends React.Component {
         const weatherList = this.props.weatherList;
         const sources = this.props.sources;
 
-        const TableRows = (weatherList,sources) => weatherList.map((item,index) => (
-            <Table.Body>
-                <Table.Row>
-                    <Table.Cell><Image src={'https://www.metaweather.com//static/img/weather/' +item.weather_state_abbr +'.svg'} rounded size='mini' /></Table.Cell>
-                    <Table.Cell>{sources[index].title}</Table.Cell>
-                    <Table.Cell>{item.weather_state_name}</Table.Cell>
-                    <Table.Cell>{item.wind_direction_compass}</Table.Cell>
-                    <Table.Cell>{Math.round(item.the_temp)}</Table.Cell>
-                    <Table.Cell>{Math.round(item.wind_speed)}</Table.Cell>
-                </Table.Row>
-            </Table.Body>
-        ))
-
-        const TableHeader = () => (
-              <Table.Header>
-                <Table.Row>
-                  <Table.HeaderCell></Table.HeaderCell>
-                  <Table.HeaderCell>Source</Table.HeaderCell>
-                  <Table.HeaderCell>Weather</Table.HeaderCell>
-                  <Table.HeaderCell>Wind Direction</Table.HeaderCell>
-                  <Table.HeaderCell>Temperature</Table.HeaderCell>
-                  <Table.HeaderCell>Wind Speed</Table.HeaderCell>
-                </Table.Row>
-              </Table.Header>
-          )
-
+        const weatherToday = (weatherListWeek) => weatherListWeek.map((item,index) => (
+            <div>
+            <Card>
+              <Image src={'https://www.metaweather.com//static/img/weather/' +item.weather_state_abbr +'.svg'} wrapped ui={false} />
+              <Card.Content>
+                <Card.Header>
+                    <a>
+                    <Icon name='globe' />
+                    Belfast
+                    </a>
+                </Card.Header>
+                
+                <Card.Description>
+                    {item.dayOfWeek}
+                    {item.weather_state_name} -
+                    Wind Direction: {item.wind_direction_compass} -
+                    Temperature: {Math.round(item.the_temp)} Celcius - 
+                    Wind Speed: {Math.round(item.wind_speed)} mph 
+                </Card.Description>
+              </Card.Content>
+              <Card.Content extra>
+                
+              </Card.Content>
+            </Card>
+            </div>
+          ))
 
         return(
             <div className = 'page-content'>
-                <Table>
-                {TableHeader(weatherList,sources)}
-                {TableRows(weatherList,sources)}
-                </Table>
+                {weatherToday(weatherList)}
             </div>
         );
     }

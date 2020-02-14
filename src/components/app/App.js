@@ -21,7 +21,7 @@ class App extends React.Component {
             console.log("consolidated Weather" + json.consolidated_weather);
             var weatherList = []
             var sources = [];
-            for(var i = 0; i < json.consolidated_weather.length;i++){
+            for(var i = 0; i < 1;i++){
                 var id = json.consolidated_weather[i].id;
                 var weather_state_name = json.consolidated_weather[i].weather_state_name;
                 var wind_direction_compass = json.consolidated_weather[i].wind_direction_compass;
@@ -66,7 +66,7 @@ class App extends React.Component {
         return (  
             <div className='body'>  
                 
-                <PageHeader searchWeatherWeek={this.searchWeatherWeek} searchWeather={this.searchWeather}/>
+                <PageHeader weatherQuery={this.weatherQuery} searchWeatherWeek={this.searchWeatherWeek} searchWeather={this.searchWeather}/>
                 <Router> 
                 <Navbar/>
                 <Switch>  
