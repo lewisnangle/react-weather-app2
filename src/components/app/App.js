@@ -6,6 +6,7 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import WeatherList from '../weatherList/weatherList';
 import Calender from '../calender/Calender';
 import ThisWeek from '../thisWeek/ThisWeek';
+import SavedWeather from '../savedWeather/SavedWeather';
 
 class App extends React.Component {  
 
@@ -77,7 +78,7 @@ class App extends React.Component {
                         <ThisWeek weatherListWeek = {this.state.weatherListWeek} sourcesWeek = {this.state.sourcesWeek}/> 
                     </Route>  
                     <Route path="/page3">  
-                        <div className='page-content'>Page 3</div>  
+                        <SavedWeather/>
                     </Route>  
                     <Route path="/page4">  
                         <Calender/>
