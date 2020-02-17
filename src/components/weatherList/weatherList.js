@@ -9,13 +9,11 @@ class weatherList extends React.Component {
         console.log("weatherList in saveWeather " + JSON.stringify(weatherList));
 
         const payload = {
-            location:"belfast",
+            location:this.props.location,
             weatherType:weatherList[0].weather_state_name,
             date:weatherList[0].applicable_date,
             temperature: weatherList[0].the_temp}
 
-       
-        
         fetch("http://localhost:8080/weatherEntities", {
             credentials: 'same-origin', // 'include', default: 'omit'
             method: 'POST', // 'GET', 'PUT', 'DELETE', etc.
@@ -37,7 +35,8 @@ class weatherList extends React.Component {
 
         const weatherList = this.props.weatherList;
         
-        const weatherToday = (weatherListWeek) => weatherListWeek.map((item,index) => (
+        
+        const weatherToday = (weatherList) => weatherList.map((item,index) => (
             <div>
             <Card>
               <Image src={'https://www.metaweather.com//static/img/weather/' +item.weather_state_abbr +'.svg'} wrapped ui={false} />
@@ -45,7 +44,7 @@ class weatherList extends React.Component {
                 <Card.Header>
                     <a>
                     <Icon name='globe' />
-                    Belfast
+                    {this.props.location}
                     </a>
                 </Card.Header>
                 
@@ -73,8 +72,6 @@ class weatherList extends React.Component {
             </div>
         );
     }
-
-
 
 }
 

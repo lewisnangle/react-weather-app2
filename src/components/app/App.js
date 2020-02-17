@@ -9,9 +9,10 @@ import ThisWeek from '../thisWeek/ThisWeek';
 
 class App extends React.Component {  
 
-    state = {weatherList:[],sources:[],weatherListWeek:[],sourcesWeek:[]};
+    state = {weatherList:[],sources:[],weatherListWeek:[],sourcesWeek:[],location:''};
 
     searchWeather = location => {
+        this.setState({location});
         fetch('http://localhost:8080/weather?name='+location)
         .then(response => 
             response.json())
@@ -38,6 +39,7 @@ class App extends React.Component {
     }
 
     searchWeatherWeek = location => {
+        this.setState({location});
         fetch('http://localhost:8080/weatherWeek?name='+location)
         .then(response => 
             response.json())
@@ -81,7 +83,7 @@ class App extends React.Component {
                         <Calender/>
                     </Route>  
                     <Route path="/">  
-                        <WeatherList weatherList = {this.state.weatherList} sources = {this.state.sources}/> 
+                        <WeatherList weatherList = {this.state.weatherList} sources = {this.state.sources} location={this.state.location}/> 
                     </Route>  
                 </Switch>  
             </Router> 
