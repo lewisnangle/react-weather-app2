@@ -24,7 +24,7 @@ class SavedWeather extends React.Component {
     render(){
 
         const savedWeather = (SavedWeather) => SavedWeather.map((item,index) => (
-            <div>
+            <div className='inside_weather_item'>
             <Card>
               <Image src={'https://www.metaweather.com//static/img/weather/' +item.weather_state_abbr +'.svg'} wrapped ui={false} />
               <Card.Content>

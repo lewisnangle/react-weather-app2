@@ -3,6 +3,9 @@
 .weather_item {  
     background: $primary;  
     display: flex;  
-    
-    
+  
+    .inside_weather_item {
+        padding-left: 10px;
+        
+    }
 } 
