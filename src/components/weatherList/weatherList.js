@@ -12,7 +12,8 @@ class weatherList extends React.Component {
             location:this.props.location,
             weatherType:weatherList[0].weather_state_name,
             date:weatherList[0].applicable_date,
-            temperature: weatherList[0].the_temp}
+            temperature: weatherList[0].the_temp,
+            weather_state_abbr: weatherList[0].weather_state_abbr}
 
         fetch("http://localhost:8080/weatherEntities", {
             credentials: 'same-origin', // 'include', default: 'omit'
