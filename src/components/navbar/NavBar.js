@@ -36,7 +36,7 @@ class NavBar extends React.Component {
                  <Link to='/page3' onClick={()=>this.updateSelected(2)}>
                     <div className={`navigation-item ${this.state.selected === 2 ? 'selected' : '' }`}>  
                         <p className='navigation-text'>  
-                            Page 3  
+                            Saved Weather  
                         </p>  
                     </div>  
                  </Link>

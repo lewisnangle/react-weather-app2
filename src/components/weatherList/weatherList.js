@@ -1,9 +1,31 @@
 import React from 'react';
-import {Table,Image,Card, Icon} from 'semantic-ui-react'
+import {Image,Card,Icon,Button} from 'semantic-ui-react'
 
 
 class weatherList extends React.Component {
 
+    saveWeather(weatherList){
+
+        console.log("weatherList in saveWeather " + JSON.stringify(weatherList));
+
+        const payload = {
+            location:"belfast",
+            weatherType:weatherList[0].weather_state_name,
+            date:weatherList[0].applicable_date,
+            temperature: weatherList[0].the_temp}
+
+       
+        
+        fetch("http://localhost:8080/weatherEntities", {
+            credentials: 'same-origin', // 'include', default: 'omit'
+            method: 'POST', // 'GET', 'PUT', 'DELETE', etc.
+            body: JSON.stringify(payload), // Coordinate the body type with 'Content-Type'
+            headers: new Headers({
+              'Content-Type': 'application/json'
+            }),
+          })
+          .then(response =>response.json()).then(()=>alert("Saved"))
+    }
 
     render(){
 
@@ -14,8 +36,7 @@ class weatherList extends React.Component {
         }
 
         const weatherList = this.props.weatherList;
-        const sources = this.props.sources;
-
+        
         const weatherToday = (weatherListWeek) => weatherListWeek.map((item,index) => (
             <div>
             <Card>
@@ -43,9 +64,12 @@ class weatherList extends React.Component {
             </div>
           ))
 
+        
+
         return(
             <div className = 'page-content'>
                 {weatherToday(weatherList)}
+                <Button onClick={()=>{this.saveWeather(weatherList)}}>Save</Button>
             </div>
         );
     }
