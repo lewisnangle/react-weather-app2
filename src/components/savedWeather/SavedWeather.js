@@ -48,7 +48,7 @@ class SavedWeather extends React.Component {
             </div>
           ))
         return(
-            <div className = 'page-content'>
+            <div className = 'page-content weather_item'>
                 {savedWeather(this.state.SavedWeather)}
             </div>
         );
