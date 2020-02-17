@@ -38,8 +38,8 @@ class ThisWeek extends React.Component {
                   <Table.HeaderCell>Day</Table.HeaderCell>
                   <Table.HeaderCell>Weather</Table.HeaderCell>
                   <Table.HeaderCell>Wind Direction</Table.HeaderCell>
-                  <Table.HeaderCell>Temperature</Table.HeaderCell>
-                  <Table.HeaderCell>Wind Speed</Table.HeaderCell>
+                  <Table.HeaderCell>Temperature (C)</Table.HeaderCell>
+                  <Table.HeaderCell>Wind Speed (mph) </Table.HeaderCell>
                 </Table.Row>
               </Table.Header>
           )
