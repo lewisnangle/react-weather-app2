@@ -6,6 +6,16 @@ class SavedWeather extends React.Component {
 
     state = {SavedWeather:[]};
 
+    removeFromListOfObjects(id,list){
+        //Remove given entity from list
+        for(var i = 0; i < list.length; i++){
+            if(list[i].id === id){
+                list.splice(i,1)
+            }
+        }
+        this.setState({SavedWeather:list})
+        }
+
     getAllSavedWeather(){
         fetch('http://localhost:8080/weatherEntity')
         .then(response => 
@@ -29,9 +39,12 @@ class SavedWeather extends React.Component {
               'Content-Type': 'application/json'
             }),
           })
-          .then(response =>console.log("RESPONSE :" + JSON.stringify(response)))
-          .then(()=>alert("Deleted"));
-          this.forceUpdate();
+          .then(()=>{
+              this.removeFromListOfObjects(id,this.state.SavedWeather)
+            })
+    
+        
+          
     }
 
     render(){
@@ -55,7 +68,7 @@ class SavedWeather extends React.Component {
                 </Card.Description>
               </Card.Content>
               <Card.Content extra>
-              <Button onClick={()=>{this.deleteWeather(item.id)}}>Save</Button>
+              <Button onClick={()=>{this.deleteWeather(item.id)}}>Delete</Button>
               </Card.Content>
             </Card>
             </div>
