@@ -14,9 +14,6 @@ class ThisWeek extends React.Component {
         const weatherListWeek = this.props.weatherListWeek;
 
 
-        
-
-
         const TableRows = (weatherListWeek) => weatherListWeek.map((item,index) => (
             
             <Table.Body>
@@ -44,11 +41,9 @@ class ThisWeek extends React.Component {
               </Table.Header>
           )
 
-          
-
-        
         return(
             <div className = 'page-content'>
+                <h3>Displaying this weeks weather for {this.props.location}</h3>
                 <Table>
                 {TableHeader(weatherListWeek)}
                 {TableRows(weatherListWeek)}

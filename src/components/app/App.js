@@ -75,7 +75,7 @@ class App extends React.Component {
                 <Navbar/>
                 <Switch>  
                     <Route path="/page2">  
-                        <ThisWeek weatherListWeek = {this.state.weatherListWeek} sourcesWeek = {this.state.sourcesWeek}/> 
+                        <ThisWeek weatherListWeek = {this.state.weatherListWeek} sourcesWeek = {this.state.sourcesWeek} location={this.state.location}/> 
                     </Route>  
                     <Route path="/page3">  
                         <SavedWeather/>

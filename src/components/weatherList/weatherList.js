@@ -58,7 +58,7 @@ class weatherList extends React.Component {
                 </Card.Description>
               </Card.Content>
               <Card.Content extra>
-                
+                <Button onClick={()=>{this.saveWeather(weatherList)}}>Save</Button>
               </Card.Content>
             </Card>
             </div>
@@ -68,8 +68,10 @@ class weatherList extends React.Component {
 
         return(
             <div className = 'page-content'>
+
+                <h3>Displaying today's weather for {this.props.location}</h3>
+
                 {weatherToday(weatherList)}
-                <Button onClick={()=>{this.saveWeather(weatherList)}}>Save</Button>
             </div>
         );
     }
