@@ -2,10 +2,10 @@
 
 .weather_item {  
     background: $primary;  
-    display: flex;  
+    display:flex;
+    flex-wrap: wrap;
   
     .inside_weather_item {
-        padding-left: 10px;
-        
+        padding: 10px;
     }
 } 

@@ -42,9 +42,6 @@ class SavedWeather extends React.Component {
           .then(()=>{
               this.removeFromListOfObjects(id,this.state.SavedWeather)
             })
-    
-        
-          
     }
 
     render(){
