@@ -1,5 +1,5 @@
 import React from 'react';
-import {Image,Card,Icon} from 'semantic-ui-react'
+import {Image,Card,Icon,Button} from 'semantic-ui-react'
 
 
 class SavedWeather extends React.Component {
@@ -12,13 +12,26 @@ class SavedWeather extends React.Component {
             response.json())
         .then((myJson) => {
             this.setState({SavedWeather:myJson})
-            console.log(myJson)
+            console.log("Saved weather!" + JSON.stringify(myJson))
         });
     }
 
     componentDidMount(){
         console.log("SavedWeather has mounted.")
         this.getAllSavedWeather();
+    }
+
+    deleteWeather(id){
+        fetch("http://localhost:8080/weatherEntities/"+id, {
+            credentials: 'same-origin', // 'include', default: 'omit'
+            method: 'DELETE', // 'GET', 'PUT', 'DELETE', etc.
+            headers: new Headers({
+              'Content-Type': 'application/json'
+            }),
+          })
+          .then(response =>console.log("RESPONSE :" + JSON.stringify(response)))
+          .then(()=>alert("Deleted"));
+          this.forceUpdate();
     }
 
     render(){
@@ -42,7 +55,7 @@ class SavedWeather extends React.Component {
                 </Card.Description>
               </Card.Content>
               <Card.Content extra>
-                
+              <Button onClick={()=>{this.deleteWeather(item.id)}}>Save</Button>
               </Card.Content>
             </Card>
             </div>
